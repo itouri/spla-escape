@@ -8,12 +8,14 @@ using UniRx.Triggers;
 public class LongPress : MonoBehaviour
 {
 	private GameObject _tween;
+    private GameObject _player;
 
-	void Start()
+    void Start()
 	{
 		_tween  = GameObject.Find("Tween");
+        _player = GameObject.Find("Player");
 
-		var mouseDownStream = this.UpdateAsObservable().Where(_ => Input.GetMouseButtonDown(0));
+        var mouseDownStream = this.UpdateAsObservable().Where(_ => Input.GetMouseButtonDown(0));
 		var mouseUpStream = this.UpdateAsObservable().Where(_ => Input.GetMouseButtonUp(0));
 
 		//長押しの判定
@@ -34,5 +36,6 @@ public class LongPress : MonoBehaviour
 
 	private void CallMove() {
 		_tween.GetComponent<Tween> ().Move ();
-	}
+        _player.GetComponent<PlayerStatus>().ApplyDamage();
+    }
 }
