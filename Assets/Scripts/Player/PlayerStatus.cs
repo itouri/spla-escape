@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+// [RequireComponent(typeof(PlayerMove))]
+
 public class PlayerStatus : MonoBehaviour {
     [SerializeField]
     private float StunTime;

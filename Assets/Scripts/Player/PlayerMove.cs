@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
 
+[RequireComponent(typeof(PlayerStatus))]
+
 public class PlayerMove : MonoBehaviour
 {
     private bool _canMove;
